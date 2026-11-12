@@ -1,0 +1,44 @@
+<section class="gerenciador">
+  <h2>Gerenciador de tarefas</h2>
+
+  <div class="formulario">
+    <input type="text" placeholder="Digite uma tarefa"
+      [value]="novaTarefa()"
+      (input)="atualizarTexto($event)"
+      (keydown.enter)="adicionarTarefa()" />
+
+    <button (click)="adicionarTarefa()"
+      [disabled]="novaTarefa().trim().length < 3">Adicionar</button>
+  </div>
+
+  <p>Total: {{ tarefas().length }}</p>
+  <p>Pendentes: {{ pendentes() }}</p>
+  <p>Tarefas concluídas: {{ tarefas().filter(t => t.concluida).length }}</p>
+
+  @if (tarefasConcluidas()) {
+    <p>Você concluiu todas as tarefas!</p>
+  }
+  
+  <ul>
+    @for (tarefa of tarefas(); track tarefa.id) {
+      <li>
+        <span [class.concluida]="tarefa.concluida">
+          {{ tarefa.titulo }}
+        </span>
+        <button (click)="alternar(tarefa.id)">
+          {{ tarefa.concluida ? 'Reabrir' : 'Concluir' }}
+        </button>
+        <button (click)="excluir(tarefa.id)">Excluir</button>
+      </li>
+    } @empty {
+      <li>Nenhuma tarefa cadastrada.</li>
+    }
+  </ul>
+
+  <button (click)="limparTarefasConcluidas()">
+    Limpar tarefas concluídas
+  </button>
+  <button (click)="limparTodasTarefas()">
+    Limpar todas as tarefas
+  </button>
+</section>

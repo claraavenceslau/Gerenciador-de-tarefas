@@ -1,0 +1,67 @@
+.gerenciador {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #f8f9fc;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.gerenciador h2 {
+  color: #26336e;
+}
+
+.gerenciador .formulario {
+  display: flex;
+  gap: 10px;
+}
+
+.gerenciador input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.gerenciador button {
+  padding: 10px;
+  margin: 5px;
+  background: #4056a1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.gerenciador button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gerenciador ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gerenciador li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+}
+
+.gerenciador li span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.gerenciador .concluida {
+  color: gray;
+  text-decoration: line-through;
+}
